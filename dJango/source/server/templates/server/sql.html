@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+</head>
+<body>
+    <div class="content container">
+        <header class="page-header">
+            <h1>Login</h1>
+        </header>
+        <div class="row">
+            <div class="col-md-16">
+                <form>
+                    <div class="form-group">
+						<p>{{ message }}</p>
+					</div>
+ 				</form>
+				<form method="POST">
+				{% csrf_token %}
+					<input type="text" class="btn btn-default" name="payload" id="payload" placeholder="SQL Query">
+					<button type="submit" formaction="{% url 'sqlcli' %}" class="btn btn-default">Execute</button>
+				</form>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

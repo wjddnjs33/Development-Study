@@ -1,0 +1,69 @@
+<html>
+<head>
+    <title>Update</title>
+	<meta charset='utf-8'>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+</head>
+<body>
+	<h1 align='center'><a href='/mypage'>Mypage</a></h1>
+    <div class="content container">
+        <header class="page-header">
+            <h1><a href="/mypage">[내 정보 변경]</a><h1>
+			<h1><a href="/delete">계정 탈퇴</a></h1>
+        </header>
+        <div class="row">
+            <div class="col-md-16">
+                <form method="POST" action="{% url 'update' %}">
+					{% csrf_token %}
+					<div class="form-group">
+						<label for="id_name">이름 </label>
+						<input type="text" name="name" class="form-control" id="name" minlength="3" placeholder="{{ name }}" disabled>
+					</div>
+					<div class="form-group">
+                        <label for="id_username">아이디</label>
+                        <input type="text" name="username" class="form-control" id="username" minlength="5" placeholder="{{ id }}" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="id_password">비밀번호 </label>
+                        <input type="password" name="password" class="form-control" id="password" minlength="8" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()_-+=[]{}~?:;`|/]).{8,50}$" placeholder="현재 비밀번호">
+                    </div>
+					<div class="form-group">
+						<label for="id_new_password">새로운 비밀번호 (대/소문자, 특수 문자 포함 8자 이상)</label>
+						<input type="password" name="new_password" class="form-control" id="new_password" minlength="8" pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()_-+=[]{}~?:;`|/]).{8,50}$" placeholder="새로운 패스워드">
+					</div>
+					 <div class="form-group">
+                        <label for="id_age">나이</label>
+                        <input type="number" name="age" class="form-control" id="age" minlength="1" placeholder="{{ age }}" disabled>
+                    </div>
+					<div class="form-group">
+						<label for="id_phone">휴대폰 번호 (ex : 01012345678)</label>
+						<input type="text" name="phone" class="form-control" id="phone" minlength="10" placeholder="{{ phone }}" disabled>
+					</div>
+					<div class="form-group">
+                        <label for="id_Department">현재 소속</label>
+                        <input type="text" name="belong" class="form-control" id="belong" minlength="1" placeholder="{{ belong }}" disabled>
+                    </div>
+					<div class="form-group">
+						<label for="id_new_Department">새로운 소속 (소속이 다수일 경우 콤마로 구분)</label>
+						<input type="text" name="new_belong" class="form-control" id="new_belong" placeholder="새로운 소속">
+					</div>
+					<div class="form-group">
+                        <label for="id_Interests">관심 분야</label><br>
+						<select name='new_interests'>
+							<option value="">{{ interests }}</option>
+							<option value="Pwnable">Pwnable</option>
+							<option value="WebHacking">Web</option>
+							<option value="Reversing">Reversing</option>
+							<option value="Forensics">Forensics</option>
+							<option value="Cryptology">Crypto</option>
+							<option value="Network">Network</option>
+						</select>
+                     </div>
+                    <button type="submit" class="btn btn-default">Modified</button><br><br>{{ message }}
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
