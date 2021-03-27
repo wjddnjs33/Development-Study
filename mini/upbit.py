@@ -21,14 +21,6 @@ Price = 434
 number = 22
 add_money = 2
 
-# 첫 매수를 통해 최고점 금액을 미리 정함.
-# 여기서 정해진 first_price 변수가 사용되는 곳은 다음 매수부터 first_price 가격보다 비싸게 사지 않기 위함.
-first_price = 0
-def first_p():
-    global first_price
-    first_price = pyupbit.get_current_price(Name)
-    #print("[+] {} 현재 가격 : {}".format(Name, first_price))
-
 ## 매수 확인
 def my_money():
     result = 0
@@ -106,7 +98,6 @@ def keep():
             print("현재 가격 : {}".format(f))
             print("더한 가격 : {}".format(first_price + add_money))
             '''
-            
             if f >= Price + add_money:
                 #print("[+] {} 현재 가격 : {}".format(Name, pyupbit.get_current_price(Name)))
                 if sell(Name, f, number):
