@@ -99,7 +99,7 @@ def keep():
 
 if __name__ == '__main__':
     # condition 변수에는 특정 코인에 현재 가격이 들어감.
-    # 해당 변수는 매수를 하는데 있어서 해당 가격보다 비싼 가격때에는 사지 않기 하기 위함.
+    # 해당 변수는 매수를 하는데 있어서 해당 가격보다 비싼 가격때에는 사지 않기 하게 위함.
     condition = pyupbit.get_current_price(Name)
 
     first_p()
