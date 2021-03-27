@@ -27,9 +27,10 @@ def first_p():
 ## 매수 확인
 def my_money():
     result = 0
+    c = Name.split('-')[1]
     m = upbit.get_balances()
     for i in range(len(m)):
-        if "ORBS" in m[i]['currency']:
+        if c in m[i]['currency']:
             result = 1
             break
         else:
