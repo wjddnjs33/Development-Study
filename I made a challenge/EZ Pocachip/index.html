@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -9,8 +8,10 @@
             width: 800px;
         }
     </style>
+    <title>Beta Site</title>
     <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
     <script src="https://raw.githack.com/cowboy/jquery-bbq/8e0064ba68a34bcd805e15499cb45de3f4cc398d/jquery.ba-bbq.js"></script>
+
     <script>
 
         function removeEmojis (str) {
@@ -18,11 +19,11 @@
           return str.replace(regex, '');
         }
         const a = {};
-        const list = ['src', 'image', 'set', 'eval(', 'list', 'alert(', 'with', 'fetch(', '()', 'href', 'confirm(', 'document.cookie', 'document[\'cookie\']','write', 'split', 'window', '`', 'this', 'top', ' ', '\'','"' ,'&', '#', 'javascript', '\\', ';', '=', '+', 'source', 'slice', '$', '_', '{', '}', '\\u', '%', 'location', 'hash', 'replace', ':', '0x', '<', '>', '!', '@', '*', '-']
+        const list = ['src', 'query', 'concat', 'constructor', 'image', 'set', 'cookie', 'call', 'eval', '?.', 'list', 'alert', 'with', 'fetch(', '()', 'atob', '==', 'charAt', 'toString', 'String', 'decode', 'encode', 'new', 'replace', 'href', 'confirm', 'v', 'document.cookie', 'document[\'cookie\']','write', 'split', 'window', '`', 'this', 'top', 'split', 'btoa', 'join', 'sort', 'push', 'find', 'pop', 'shift', 'call', 'reduce', 'unshift', 'slice', '\'','"' ,'&', '#', 'javascript', '\\', ';', '=', '+', 'source', 'slice', '$', '_', '{', '}', '\\u', '%', 'location', 'hash', 'replace', ':', '0x', '<', '>', '!', '@', '*', '-']
         const query = removeEmojis(location.search.slice(1).toLowerCase().replace('__proto__',''));
         const _query = query.split('&')
 
-
+        console.log(_query)
         for (var v of _query) {
           const query_ = v.split('=')[1]
           for (var value of list) {
@@ -39,6 +40,7 @@
             $.deparam(v)
           } else {
             a.__proto__.admin  = 'alert("Woops!!");';
+            break
           }
         }
         const b = {}
@@ -46,14 +48,16 @@
     </script>
   </head>
   <body>
-    <h1>E-Z <a href='http://www.orionworld.com/Snak/power_brand/type_view.asp?iCodeNo=5&iSerialNo=78'>Pocachip</a> Challenge</h1>
+    <h1>Beta Chall</h1>
 
-    <pre>Sry, I didn't have time to create an admin bot :(
+    <pre>
 
-First, set a test cookie in your browser.
-Second, find a XSS vulnerability here.
-Third, steal the test flag(document.cookie) to your private server.
-Finally, if the exploit is successful, send the payload to the pocas#9655.
+You find a XSS vulnerability here.
+if the exploit is successful, send the payload to the pocas#9655.
+
+1. self-xss is not intended as a vulnerability. only Reflected XSS
+2. Dos-like attacks are prohibited.
+3. It's not a difficult xss-chall, but please enjoy it!! good luck
 
     </pre>
     <div>
